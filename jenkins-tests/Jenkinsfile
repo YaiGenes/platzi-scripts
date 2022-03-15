@@ -5,18 +5,18 @@ pipeline {
   }
 
   options {
-    timeout(time: 2, unit: 'MINUTES')
+    timeout(time: 3, unit: 'MINUTES')
   }
 
   stages {
     stage('Install dependencies') {
       steps {
-        sh 'cd jenkins-tests && npm i'
+        sh 'cd jenkins-tests && npm install'
       }
     }
     stage('Run tests') {
       steps {
-        sh 'cd jenkins-tests && npm t'
+        sh 'cd jenkins-tests && npm test'
       }
     }
   }
